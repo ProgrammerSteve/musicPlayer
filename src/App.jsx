@@ -5,11 +5,9 @@ import Home from "./containers/home/Home.jsx";
 
 const App = () => {
   return (
-    <div className="">
-      <Routes>
-        <Route index path="/" element={<Home />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route index path="/" element={<Home />} />
+    </Routes>
   );
 };
 export default App;

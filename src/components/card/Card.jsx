@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import useSound from "use-sound";
 import debussy from "../../assets/music/Claire_De_Luna.mp3";
+import SongDetails from "../songDetails/SongDetails.jsx";
+import TimeControls from "../timeControls/TimeControls.jsx";
+import MusicControls from "../musicControls/MusicControls.jsx";
 
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai"; // icons for play and pause
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi"; // icons for next and previous track
@@ -61,61 +64,18 @@ const Card = () => {
   };
 
   return (
-    <div className="component">
-      <img className="musicCover" src="https://picsum.photos/200/200" />
-      <div>
-        <h3 className="title">Clair De Lune</h3>
-        <p className="subTitle">Claude Debussy</p>
-      </div>
+    <div className=" bg-white h-[150px] flex  p-[2em] font-sans text-center">
+      <SongDetails />
 
-      <div>
-        <div className="time">
-          <p>
-            {currTime.min}:{currTime.sec}
-          </p>
-          <p>
-            {time.min}:{time.sec}
-          </p>
-        </div>
-
-        {sound && (
-          <input
-            type="range"
-            min="0"
-            max={duration / 1000}
-            default="0"
-            value={seconds}
-            className="timeline"
-            onChange={handleTimeBar}
-          />
-        )}
-      </div>
-
-      <div>
-        <button className="playButton">
-          <IconContext.Provider value={{ size: "3em", color: "#27AE60" }}>
-            <BiSkipPrevious />
-          </IconContext.Provider>
-        </button>
-        {!isPlaying ? (
-          <button className="playButton" onClick={playingButton}>
-            <IconContext.Provider value={{ size: "3em", color: "#27AE60" }}>
-              <AiFillPlayCircle />
-            </IconContext.Provider>
-          </button>
-        ) : (
-          <button className="playButton" onClick={playingButton}>
-            <IconContext.Provider value={{ size: "3em", color: "#27AE60" }}>
-              <AiFillPauseCircle />
-            </IconContext.Provider>
-          </button>
-        )}
-        <button className="playButton">
-          <IconContext.Provider value={{ size: "3em", color: "#27AE60" }}>
-            <BiSkipNext />
-          </IconContext.Provider>
-        </button>
-      </div>
+      <TimeControls
+        currTime={currTime}
+        time={time}
+        seconds={seconds}
+        handleTimeBar={handleTimeBar}
+        sound={sound}
+        duration={duration}
+      />
+      <MusicControls isPlaying={isPlaying} playingButton={playingButton} />
     </div>
   );
 };
