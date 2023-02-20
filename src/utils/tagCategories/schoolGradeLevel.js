@@ -1,0 +1,15 @@
+export const schoolGradeLevelArr = [
+  "Any Grade",
+  "Pre-Kindergarten",
+  "Kindergarten",
+  "First Grade",
+  "Second Grade",
+  "Third Grade",
+  "Fourth Grade",
+  "Fifth Grade",
+  "Sixth Grade",
+  "Seventh Grade",
+  "Eighth Grade",
+  "High School",
+  "Older Beginner",
+];
