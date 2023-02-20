@@ -8,7 +8,17 @@ module.exports = {
     path.resolve(__dirname, "public", "index.html"),
   ],
   theme: {
+    screens: {
+      xxs: "350px",
+      xs: "500px",
+      mdlg: "900px",
+      ...defaultTheme.screens,
+    },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+
+    require("tailwind-scrollbar-hide"),
+  ],
 };

@@ -9,27 +9,41 @@ const TimeControls = ({
   sound,
 }) => {
   return (
-    <div>
-      <div className="my-0 mx-auto w-[80%] flex justify-between text-[#828282] text-sm">
+    <div className="grow">
+      <div className="my-0 mx-auto w-[95%] flex justify-between text-[#828282] text-sm">
         <p>
-          {currTime.min}:{currTime.sec}
+          {currTime.min.toLocaleString("en-US", {
+            minimumIntegerDigits: 2,
+            useGrouping: false,
+          })}
+          :
+          {currTime.sec.toLocaleString("en-US", {
+            minimumIntegerDigits: 2,
+            useGrouping: false,
+          })}
         </p>
         <p>
-          {time.min}:{time.sec}
+          {time.min.toLocaleString("en-US", {
+            minimumIntegerDigits: 2,
+            useGrouping: false,
+          })}
+          :
+          {time.sec.toLocaleString("en-US", {
+            minimumIntegerDigits: 2,
+            useGrouping: false,
+          })}
         </p>
       </div>
 
-      {sound && (
-        <input
-          type="range"
-          min="0"
-          max={duration / 1000}
-          default="0"
-          value={seconds}
-          className="w-[80%] bg-[#27ae60]"
-          onChange={handleTimeBar}
-        />
-      )}
+      <input
+        type="range"
+        min="0"
+        max={duration / 1000}
+        default="0"
+        value={seconds}
+        className="w-[95%] bg-[#27ae60]"
+        onChange={handleTimeBar}
+      />
     </div>
   );
 };

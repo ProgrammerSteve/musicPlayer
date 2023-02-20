@@ -1,12 +1,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./app.css";
-import Home from "./containers/home/Home.jsx";
-
+import SongPage from "./pages/SongPage/SongPage.jsx";
 const App = () => {
   return (
     <Routes>
-      <Route index path="/" element={<Home />} />
+      <Route index path="/" element={<SongPage />} />
     </Routes>
   );
 };

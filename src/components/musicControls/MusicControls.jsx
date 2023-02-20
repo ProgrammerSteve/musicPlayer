@@ -8,7 +8,7 @@ const MusicControls = ({ isPlaying, playingButton }) => {
   return (
     <div>
       <button className="bg-none border-0 items-center justify-center">
-        <IconContext.Provider value={{ size: "3em", color: "#27AE60" }}>
+        <IconContext.Provider value={{ size: "3em", color: "#424062" }}>
           <BiSkipPrevious />
         </IconContext.Provider>
       </button>
@@ -17,7 +17,7 @@ const MusicControls = ({ isPlaying, playingButton }) => {
           className="bg-none border-0 items-center justify-center"
           onClick={playingButton}
         >
-          <IconContext.Provider value={{ size: "3em", color: "#27AE60" }}>
+          <IconContext.Provider value={{ size: "3em", color: "#424062" }}>
             <AiFillPlayCircle />
           </IconContext.Provider>
         </button>
@@ -26,13 +26,13 @@ const MusicControls = ({ isPlaying, playingButton }) => {
           className="bg-none border-0 items-center justify-center"
           onClick={playingButton}
         >
-          <IconContext.Provider value={{ size: "3em", color: "#27AE60" }}>
+          <IconContext.Provider value={{ size: "3em", color: "#424062" }}>
             <AiFillPauseCircle />
           </IconContext.Provider>
         </button>
       )}
       <button className="bg-none border-0 items-center justify-center">
-        <IconContext.Provider value={{ size: "3em", color: "#27AE60" }}>
+        <IconContext.Provider value={{ size: "3em", color: "#424062" }}>
           <BiSkipNext />
         </IconContext.Provider>
       </button>

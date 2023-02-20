@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import useSound from "use-sound";
 import debussy from "../../assets/music/Claire_De_Luna.mp3";
-import SongDetails from "../songDetails/SongDetails.jsx";
-import TimeControls from "../timeControls/TimeControls.jsx";
-import MusicControls from "../musicControls/MusicControls.jsx";
+import SongDetails from "../../components/songDetails/SongDetails.jsx";
+import TimeControls from "../../components/timeControls/TimeControls.jsx";
+import MusicControls from "../../components/musicControls/MusicControls.jsx";
 
-import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai"; // icons for play and pause
-import { BiSkipNext, BiSkipPrevious } from "react-icons/bi"; // icons for next and previous track
-import { IconContext } from "react-icons"; // for customazing the icons
-
-const Card = () => {
+const SongPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [play, { pause, duration, sound }] = useSound(debussy);
   const [seconds, setSeconds] = useState(0);
@@ -64,7 +60,7 @@ const Card = () => {
   };
 
   return (
-    <div className=" bg-white h-[150px] flex  p-[2em] font-sans text-center">
+    <div className=" bg-white h-[150px] pr-[40%] flex items-center justify-between gap-2 p-[2em] font-sans text-center">
       <SongDetails />
 
       <TimeControls
@@ -80,4 +76,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default SongPlayer;
