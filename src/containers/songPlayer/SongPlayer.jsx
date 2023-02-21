@@ -5,10 +5,14 @@ import SongDetails from "../../components/songDetails/SongDetails.jsx";
 import TimeControls from "../../components/timeControls/TimeControls.jsx";
 import MusicControls from "../../components/musicControls/MusicControls.jsx";
 
+import { AiFillHome } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+
 const SongPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [play, { pause, duration, sound }] = useSound(debussy);
+  const [play, { stop, pause, duration, sound }] = useSound(debussy);
   const [seconds, setSeconds] = useState(0);
+  const navigate = useNavigate();
 
   const [currTime, setCurrTime] = useState({
     min: 0,
@@ -59,19 +63,31 @@ const SongPlayer = () => {
     if (sound) sound.seek([Number(e.target.value)]);
   };
 
-  return (
-    <div className=" bg-white h-[150px] pr-[40%] flex items-center justify-between gap-2 p-[2em] font-sans text-center">
-      <SongDetails />
+  const handleNavigate = async () => {
+    await stop();
+    navigate("/");
+  };
 
-      <TimeControls
-        currTime={currTime}
-        time={time}
-        seconds={seconds}
-        handleTimeBar={handleTimeBar}
-        sound={sound}
-        duration={duration}
-      />
-      <MusicControls isPlaying={isPlaying} playingButton={playingButton} />
+  return (
+    <div className=" bg-white h-[150px] flex items-center justify-between p-[2em] ">
+      <div className="flex items-center justify-start gap-2 font-sans text-center w-1/2">
+        <SongDetails />
+
+        <TimeControls
+          currTime={currTime}
+          time={time}
+          seconds={seconds}
+          handleTimeBar={handleTimeBar}
+          sound={sound}
+          duration={duration}
+        />
+        <MusicControls isPlaying={isPlaying} playingButton={playingButton} />
+      </div>
+      <div>
+        <div onClick={handleNavigate} className="cursor-pointer">
+          <AiFillHome className="w-[40px] h-[40px] fill-gray-800" />
+        </div>
+      </div>
     </div>
   );
 };
